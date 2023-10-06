@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var alarmanimation : AnimationDrawable
+    lateinit var heartanimation : AnimationDrawable
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        lateinit var alarmanimation : AnimationDrawable
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -21,20 +21,19 @@ class MainActivity : AppCompatActivity() {
         val heart : ImageView = findViewById(R.id.heart)
         heart.setBackgroundResource(R.drawable.heart_animation_list)
         heartanimation = heart.background as AnimationDrawable
+
+
     }
-
-
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) {
             alarmanimation.start()
             heartanimation.start()
-
         }
         else {
             alarmanimation.stop()
-            ala
+            heartanimation.stop()
         }
     }
 }
